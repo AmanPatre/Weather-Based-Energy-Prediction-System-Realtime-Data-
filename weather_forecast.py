@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 from datetime import datetime, timedelta
+import os
 
 # Set your project location (example: Delhi)
 latitude = 23.077080
@@ -23,13 +24,17 @@ if response.status_code == 200:
     data = response.json()['hourly']
     df = pd.DataFrame({
         'Date/Time': data['time'],
-        'Temperature (°C)': data['temperature_2m'],
-        'Wind Speed (m/s)': data['windspeed_10m'],
-        'Sunlight (W/m²)': data['shortwave_radiation'],
-        'Cloud Cover (%)': data['cloudcover'],
-        'Humidity (%)': data['relative_humidity_2m']
+        'Ambient_Temperature': data['temperature_2m'],
+        'Wind_Speed': data['windspeed_10m'],
+        'Cloud_Cover': data['cloudcover'],
+        'Humidity': data['relative_humidity_2m']
     })
-    file_name = f"weather_forecast_{start_date}.csv"
+    
+    # Save inside Data folder
+    folder_path = "Data"
+    os.makedirs(folder_path, exist_ok=True)   # Ensure folder exists
+    file_name = os.path.join(folder_path, "realtime.csv")
+    
     df.to_csv(file_name, index=False)
     print(f"Weather forecast saved to {file_name}")
 else:
