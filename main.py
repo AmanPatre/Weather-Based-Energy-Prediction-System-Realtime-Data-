@@ -8,7 +8,7 @@ import json
 
 def load_and_prepare_data(file_path):
     """Load the merged CSV file and prepare it for training"""
-    df = pd.read_csv('E:/weather-prediction-model/Data/merged.csv')
+    df = pd.read_csv("C:/Users/HP/OneDrive/Desktop/Sem/SEM 6/EPICS/EPICS_PROJECT/Weather-Based-Energy-Prediction-System-Realtime-Data-/data/merged.csv")
     
     # Convert date/time column to datetime format
     df['Date/Time'] = pd.to_datetime(df['Date/Time'])
@@ -146,7 +146,7 @@ def generate_hourly_forecast(model, scaler, weather_data, features, date_to_fore
 
 def main():
     # Load data from merged.csv
-    csv_file_path = 'E:/weather-prediction-model/Data/merged.csv'
+    csv_file_path = "C:/Users/HP/OneDrive/Desktop/Sem/SEM 6/EPICS/EPICS_PROJECT/Weather-Based-Energy-Prediction-System-Realtime-Data-/data/merged.csv"
     
     try:
         df = load_and_prepare_data(csv_file_path)
@@ -170,9 +170,9 @@ def main():
     print("Training Wind Energy Model...")
     wind_model, wind_scaler = train_energy_model(df, 'wind_energy_kwh', features)
     
-    # Generate forecast for the next day
+    # Generate forecast for the last available date
     last_date = df['Date/Time'].max()
-    forecast_date = (last_date + pd.Timedelta(days=1)).strftime('%Y-%m-%d')
+    forecast_date = last_date.strftime('%Y-%m-%d')
     
     print(f"\nGenerating forecast for {forecast_date}...")
     
