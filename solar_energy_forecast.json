@@ -1,13 +1,20 @@
 {
+
   "date": "2025-09-21",
   "granularity": "hourly",
   "forecast_series_kwh": [
     0.2,
     0.2,
+
+  "date": "2025-09-19",
+  "granularity": "hourly",
+  "forecast_series_kwh": [
+
     0.1,
     0.1,
     0.1,
     0.1,
+
     0.5,
     0.7,
     0.9,
@@ -28,4 +35,28 @@
     1.9
   ],
   "total_generation_kwh": 29.3
+
+    0.1,
+    0.1,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.8,
+    0.8,
+    0.8,
+    0.8,
+    0.8,
+    0.8,
+    0.7,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1
+  ],
+  "total_generation_kwh": 10.8
+
 }
